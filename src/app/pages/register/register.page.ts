@@ -28,6 +28,7 @@ export class RegisterPage implements OnInit {
       email: ["", Validators.compose([Validators.required, Validators.email])],
       password: ["", Validators.required],
       name: ["", Validators.required],
+      confirmPassword: ["", Validators.required]
     });
   }
 

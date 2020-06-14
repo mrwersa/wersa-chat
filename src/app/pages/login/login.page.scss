@@ -1,0 +1,26 @@
+
+$height100: 100% !important;
+$width100: 100% !important;
+
+ion-grid {
+  width: $width100;
+  height: $height100;
+}
+
+ion-row {
+  height: $height100;
+}
+
+ion-col {
+  border: 1px solid #3880ff;
+}
+
+ion-button {
+  font-weight: 300;
+}
+
+@media (min-width: 240px) and (max-width: 768px) {
+  ion-col {
+    border: none;
+  }
+}
