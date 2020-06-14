@@ -1,0 +1,7 @@
+{
+  "name": "wersa-chat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
