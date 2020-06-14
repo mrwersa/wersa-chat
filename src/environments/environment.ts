@@ -5,15 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyCnyFsQE0kUhBCBltSB_6k_I0Ctl_8CMHg",
-    authDomain: "nomadic-ocean-249917.firebaseapp.com",
-    databaseURL: "https://nomadic-ocean-249917.firebaseio.com",
-    projectId: "nomadic-ocean-249917",
-    storageBucket: "nomadic-ocean-249917.appspot.com",
-    messagingSenderId: "76740545616",
-    appId: "1:76740545616:web:d678b517692cbf9f2e1555",
-    measurementId: "G-F3WTBRFPHF",
-  },
+    apiKey: " AIzaSyDYskYItKTKz6yXOVOOg2hNge0spdigoAU",
+    authDomain: "wersa-chat.firebaseapp.com",
+    databaseURL: "https://wersa-chat.firebaseio.com",
+    projectId: "wersa-chat",
+    storageBucket: "wersa-chat.appspot.com",
+    messagingSenderId: "424389687138",
+    appId: "com.wersa-chat"    
+  }
 };
 
 /*
