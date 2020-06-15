@@ -14,7 +14,7 @@ import { ChatsService } from "./chats/chats.service";
     AuthService,
     UserService,
     UtilService,
-    CameraService,
+    CameraService
   ],
 })
 export class ServicesModule {}

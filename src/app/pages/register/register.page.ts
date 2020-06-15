@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Storage } from "@ionic/storage";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { UserService } from "src/app/services/user/user.service";
 import { UtilService } from "src/app/services/util/util.service";
+import { FlashProvider } from "../../providers/flash/flash.provider";
 
 @Component({
   selector: "app-register",
@@ -20,7 +21,8 @@ export class RegisterPage implements OnInit {
     private userService: UserService,
     private util: UtilService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private flashProvider: FlashProvider
   ) {}
 
   createFrom(): void {
@@ -28,7 +30,6 @@ export class RegisterPage implements OnInit {
       email: ["", Validators.compose([Validators.required, Validators.email])],
       password: ["", Validators.required],
       name: ["", Validators.required],
-      confirmPassword: ["", Validators.required]
     });
   }
 
@@ -40,13 +41,16 @@ export class RegisterPage implements OnInit {
     this.auth.createAccount(this.registerForm.value).then(
       (data) => {
         console.log("uid account: ", data.user.uid);
+        this.auth.logout();
+
+        // store in db
         this.storage.set("uid", JSON.stringify(data.user.uid));
-        this.userService.createUser(this.registerForm.value);
-        this.util.doAlert("Success", msg, "Ok");
-        this.router.navigateByUrl("/login");
+        this.userService
+          .createUser(this.registerForm.value)
+          .then(() => this.flashProvider.show(msg, 3000));
       },
       (reason) => {
-        this.util.doAlert("Error", reason, "Ok");
+        this.flashProvider.show(reason, 3000);
       }
     );
   }

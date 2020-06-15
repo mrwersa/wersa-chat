@@ -15,11 +15,12 @@ import { AngularFireDatabaseModule } from "@angular/fire/database"; // use real 
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { IonicStorageModule } from "@ionic/storage";
 import { ServicesModule } from "./services/services.module";
+import { ComponentsModule } from "./components/components.module";
+import { ProvidersModule } from "./providers/providers.module";
 import { Camera } from "@ionic-native/camera/ngx";
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -29,6 +30,8 @@ import { Camera } from "@ionic-native/camera/ngx";
     AngularFireAuthModule,
     IonicStorageModule.forRoot(),
     ServicesModule,
+    ComponentsModule,
+    ProvidersModule,
     RouterModule,
   ],
   providers: [

@@ -1,25 +1,38 @@
-<ion-grid>
-  
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
         <div class="ion-text-center">
-          <h4>Login Form</h4>
+          <h4>Login</h4>
         </div>
-        <div class="ion-padding">
-          <form #form="ngForm" [formGroup]="loginForm">
-          <ion-item>
-            <ion-input formControlName="email" name="email" type="email" placeholder="Username"></ion-input>
-          </ion-item>
 
-          <ion-item>
-            <ion-input formControlName="password" name="password" type="password" placeholder="Password"></ion-input>
-          </ion-item>
+        <form [formGroup]="loginForm" (ngSubmit)="sigin()">
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input formControlName="email" name="email" type="email" placeholder="Username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="password" name="password" type="password" placeholder="Password"></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <ion-button type="submit" [disabled]="loginForm.invalid" size="large" expand="block">Login</ion-button>
+          </div>
         </form>
-        </div>
 
-        <div class="ion-padding">
-          <ion-button size="large" (click)="sigin()" expand="block">Login</ion-button>
+        <div class="ion-text-center">
+          Need new accounr? <a routerLink='/register'>
+            Sign up now</a>
         </div>
       </ion-col>
     </ion-row>
-</ion-grid>
+  </ion-grid>
+</ion-content>

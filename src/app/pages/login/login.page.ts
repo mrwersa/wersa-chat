@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   createFrom(): void {
     this.loginForm = this.fb.group({
       email: ["", Validators.compose([Validators.required, Validators.email])],
-      password: ["", Validators.required],
+      password: ["", Validators.required]
     });
   }
 

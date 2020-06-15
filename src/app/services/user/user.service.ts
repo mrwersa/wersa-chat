@@ -24,11 +24,11 @@ export class UserService {
   }
 
   //create User in firebase with infos
-  createUser(user: User): void {
-    // console.log('create user in db uid: ', uid);
+  createUser(user: User): Promise<void> {
+    console.log("create user in db");
     // get the ref of the users with uid and save it in the db
     let userRef = this.db.object(`users/${this.getUID()}`);
-    userRef.set({ email: user.email, name: user.name });
+    return userRef.set({ email: user.email, name: user.name });
   }
 
   //get info of single user
